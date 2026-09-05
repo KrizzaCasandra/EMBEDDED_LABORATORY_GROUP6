@@ -1,0 +1,10 @@
+C:\Users\KC\source\repos\EMBEDDED_LAB3\EMBEDDED_LAB3\bin\Debug\EMBEDDED_LAB3.exe.config
+C:\Users\KC\source\repos\EMBEDDED_LAB3\EMBEDDED_LAB3\bin\Debug\EMBEDDED_LAB3.exe
+C:\Users\KC\source\repos\EMBEDDED_LAB3\EMBEDDED_LAB3\bin\Debug\EMBEDDED_LAB3.pdb
+C:\Users\KC\source\repos\EMBEDDED_LAB3\EMBEDDED_LAB3\obj\Debug\EMBEDDED_LAB3.csproj.AssemblyReference.cache
+C:\Users\KC\source\repos\EMBEDDED_LAB3\EMBEDDED_LAB3\obj\Debug\EMBEDDED_LAB3.Form1.resources
+C:\Users\KC\source\repos\EMBEDDED_LAB3\EMBEDDED_LAB3\obj\Debug\EMBEDDED_LAB3.Properties.Resources.resources
+C:\Users\KC\source\repos\EMBEDDED_LAB3\EMBEDDED_LAB3\obj\Debug\EMBEDDED_LAB3.csproj.GenerateResource.cache
+C:\Users\KC\source\repos\EMBEDDED_LAB3\EMBEDDED_LAB3\obj\Debug\EMBEDDED_LAB3.csproj.CoreCompileInputs.cache
+C:\Users\KC\source\repos\EMBEDDED_LAB3\EMBEDDED_LAB3\obj\Debug\EMBEDDED_LAB3.exe
+C:\Users\KC\source\repos\EMBEDDED_LAB3\EMBEDDED_LAB3\obj\Debug\EMBEDDED_LAB3.pdb
