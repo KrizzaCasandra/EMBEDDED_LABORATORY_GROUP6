@@ -336,121 +336,17 @@ namespace EMBEDDED_LAB3
             SerialDataReceivedEventArgs e)
         {
             try
-            {
-                string line =
-                    serialPort1.ReadLine().Trim();
-
-                string[] parts =
-                    line.Split(',');
-
-                if (parts.Length != 2)
-                    return;
-
-                if (!int.TryParse(
-                    parts[0],
-                    out int light))
-                {
-                    return;
-                }
-
-                if (!int.TryParse(
-                    parts[1],
-                    out int motion))
-                {
-                    return;
-                }
-
-                if (light < 0 ||
-                    light > 1023)
-                {
-                    return;
-                }
-
-                if (motion != 0 &&
-                    motion != 1)
-                {
-                    return;
-                }
-
-                int lightScaled =
-                    (int)(
-                        (light / 1023.0)
-                        * 100
-                    );
-
-                int motionScaled =
-                    motion == 1
-                    ? 100
-                    : 0;
-
-                BeginInvoke(
-                    (MethodInvoker)(() =>
-                    {
-                        this.Text =
-                            $"Received: {light},{motion}";
-
-                        labelLightValue.Text =
-                            $"Light: {light} / 1023";
-
-                        if (motion == 1)
-                        {
-                            labelMotionStatus.Text =
-                                "Motion: DETECTED";
-
-                            labelMotionStatus.ForeColor =
-                                Color.Red;
-                        }
-                        else
-                        {
-                            labelMotionStatus.Text =
-                                "Motion: none";
-
-                            labelMotionStatus.ForeColor =
-                                Color.Black;
-                        }
-
-                        chart1.Series["LIGHT"]
-                            .Points.AddXY(
-                                _pointIndex,
-                                lightScaled
-                            );
-
-                        chart2.Series["MOTION"]
-                            .Points.AddXY(
-                                _pointIndex,
-                                motionScaled
-                            );
-
-                        _pointIndex++;
-
-                        while (
-                            chart1.Series["LIGHT"]
-                                .Points.Count > 20)
-                        {
-                            chart1.Series["LIGHT"]
-                                .Points.RemoveAt(0);
-                        }
-
-                        while (
-                            chart2.Series["MOTION"]
-                                .Points.Count > 20)
-                        {
-                            chart2.Series["MOTION"]
-                                .Points.RemoveAt(0);
-                        }
-                    }));
-            }
-            catch (TimeoutException)
-            {
-            }
-            catch (InvalidOperationException)
-            {
-            }
-            catch
-            {
-            }
+    {
+        string line = serialPort1.ReadLine(); // "light,motion"
+        string[] parts = line.Trim().Split(',');
+        this.Invoke((MethodInvoker)delegate {
+            labelLightValue.Text = parts[0];
+            labelMotionStatus.Text = parts[1];
+            chart1.Series[0].Points.Add(double.Parse(parts[0]));
+        });
+    }
+    catch { /* ignore malformed line */ }
         }
-
         // =====================================================
         // CLOSE PORT WHEN FORM CLOSES
         // =====================================================
